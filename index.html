@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <style>
+            .block{
+                display: inline-block;
+                background: #2d132c;
+                color: white;
+                padding: 20px;
+                width: 600px;
+                margin: 10px;
+            }
+
+            .block-header{
+                color: #ee4540;
+            }
+
+            .block-body ul{
+                margin: 0;
+                padding: 0;
+            }
+
+            .block-body ul li{
+                margin: 0;
+                padding: 0;
+                padding-bottom: 3px;
+                list-style: none;
+                color: #eae7af;
+                font-weight: 700;
+            }
+
+            .block-body ul li span{
+                font-weight: 400;
+                color: #eeeeee
+            }
+        </style>
+    </head>
+    <body>
+        <div class="block-chain">
+            {{range .}}
+                {{ if .Data}}
+                    <div class="block">
+                        <div class="block-header">
+                            <h3>Block {{ .Index }} </h3>
+                        </div>
+                        <div class="block-body">
+                            <ul>
+                                <li> Data <span>{{ .Data}}</span> </li>
+                                <li> Hash <span>{{ .Hash}}</span> </li>
+                                <li> Previous Hash <span>{{ .PreviousHash}}</span> </li>
+                                <li> Created At <span>{{ .Timestamp}}</span> </li>
+                            </ul>
+                        </div>
+                    </div>
+                {{ end }}
+            {{end}}
+        </div>
+    </body>
+</html>
